@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/modules/add_note.dart';
 import 'modules/home.dart';
 
 void main() {
@@ -18,12 +19,15 @@ class MyApp extends StatelessWidget {
         textTheme: const TextTheme(
           titleLarge: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Colors.purple,
           )
         ),
         useMaterial3: true,
       ),
-      home:   HomePage(),
+      home:  HomePage(),
+      routes: {
+        "addnotes": (context) => const AddNotes(),
+      },
     );
   }
 }
