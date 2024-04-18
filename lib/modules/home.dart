@@ -4,7 +4,7 @@ import 'package:note_app/sqldb/sqldb.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatefulWidget {
-   HomePage({super.key});
+   const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -18,7 +18,7 @@ Future readData()async{
   List<Map> response = await sqlDb.read("notes");
   notes.addAll(response);
   isLoading = false;
-  if (this.mounted){
+  if (mounted){
     setState(() {
     });
   }
@@ -31,7 +31,7 @@ Future readData()async{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("My Notes", style: TextStyle(color: Colors.purple),),
+      appBar: AppBar(title: const Text("My Notes", style: TextStyle(color: Colors.purple),),
       centerTitle: true,),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.purple.shade700,
@@ -70,6 +70,7 @@ Future readData()async{
                               setState(() {
                               });
                             }
+                            // ignore: avoid_print
                             print(response);
                           }, ),
                           IconButton(

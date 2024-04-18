@@ -60,9 +60,10 @@ class _AddNotesState extends State<AddNotes> {
                             "title": title.text,
                           });
                           if (response > 0) {
+                            // ignore: use_build_context_synchronously
                             Navigator.of(context).pushAndRemoveUntil(
                                 MaterialPageRoute(
-                                    builder: (context) => HomePage()),
+                                    builder: (context) => const HomePage()),
                                 (route) => false);
                           }
                         },

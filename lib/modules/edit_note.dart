@@ -5,10 +5,10 @@ import 'package:note_app/modules/home.dart';
 import 'package:note_app/sqldb/sqldb.dart';
 
 class EditNote extends StatefulWidget {
-  const EditNote({super.key, this.note, this.title, this.id});
-  final note;
-  final title;
-  final id;
+  const EditNote({super.key, required this.note, required this.title, required this.id});
+  final String note;
+  final String title;
+  final int id;
 
   @override
   State<EditNote> createState() => _EditNoteState();
@@ -25,6 +25,7 @@ class _EditNoteState extends State<EditNote> {
     title.text = widget.title;
     super.initState();
   }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -67,9 +68,10 @@ class _EditNoteState extends State<EditNote> {
                           // int response = await sqlDb.updateData(
                           //  "UPDATE notes set note ='${note.text}',title = '${title.text}'WHERE id = ${widget.id}");
                           if (response > 0) {
+                            // ignore: use_build_context_synchronously
                             Navigator.of(context).pushAndRemoveUntil(
                                 MaterialPageRoute(
-                                    builder: (context) => HomePage()),
+                                    builder: (context) => const HomePage()),
                                     (route) => false);
                           }
                         },

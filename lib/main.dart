@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home:  HomePage(),
+      home:  const HomePage(),
       routes: {
         "addnotes": (context) => const AddNotes(),
       },
