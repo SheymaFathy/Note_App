@@ -72,7 +72,7 @@ readData(String sql)async{
 
 
 
-
+//اكواد مختصرة 
 // getData
   read(String table)async{
     Database? mydb = await db;
